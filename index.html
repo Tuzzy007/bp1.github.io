@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gombok és GIF</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(252,182,188);
+        }
+
+        .igen-gomb, .nem-gomb {
+            background-color: pink;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            border: 2px solid #ff66b2;
+            border-radius: 10px;
+        }
+
+        .nem-gomb {
+            background-color: #e60000;
+            border: 2px solid #ff4d4d;
+        }
+
+        #cuki-gif, #valentines-day-gif {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img id="cuki-gif" src="valentines-valentines-day.gif" alt="Cuki GIF">
+    <img id="valentines-day-gif" src="valentines-day.gif" alt="Valentines Day GIF">
+    <button class="igen-gomb" onclick="igenClicked()">Igen</button>
+    <button class="nem-gomb" onclick="nemClicked()">Nem</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var cukiGif = document.getElementById('cuki-gif');
+            cukiGif.style.display = 'block';
+        });
+
+        function igenClicked() {
+            var elementsToHide = document.querySelectorAll('button, #cuki-gif');
+            elementsToHide.forEach(function(element) {
+                element.style.display = 'none';
+            });
+
+            var valentinesDayGif = document.getElementById('valentines-day-gif');
+            valentinesDayGif.style.display = 'block';
+        }
+
+        function nemClicked() {
+            var nemGomb = document.querySelector('.nem-gomb');
+            var x = Math.random() * window.innerWidth;
+            var y = Math.random() * window.innerHeight;
+            nemGomb.style.position = 'absolute';
+            nemGomb.style.left = x + 'px';
+            nemGomb.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
